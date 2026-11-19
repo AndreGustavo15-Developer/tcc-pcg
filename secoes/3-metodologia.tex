@@ -1,0 +1,262 @@
+%  SEÇÃO 3 — METODOLOGIA
+\chapter{METODOLOGIA}
+\label{cap:metodologia}
+
+% 3.1 Tipo e natureza da pesquisa
+\section{Classificação da Pesquisa}
+\label{sec:classificacao-pesquisa}
+
+Esta pesquisa classifica-se, quanto à sua natureza, como aplicada,
+pois busca investigar um problema relacionado à geração procedural 
+de fases em jogos digitais por meio do desenvolvimento e da avaliação 
+de um protótipo computacional. O estudo pretende comparar diferentes 
+estratégias de geração procedural, considerando sua capacidade de 
+produzir fases estruturalmente válidas e completáveis, bem como a 
+diversidade dos conteúdos gerados e a experiência dos jogadores.
+
+Quanto aos seus objetivos, a pesquisa caracteriza-se como exploratória 
+e descritiva. É exploratória por investigar o comportamento de diferentes 
+estratégias de geração procedural no contexto de jogos de plataforma 2D, 
+buscando ampliar a compreensão sobre suas características e diferenças. 
+Também é descritiva, pois pretende observar, registrar e analisar os resultados 
+obtidos por cada estratégia, considerando métricas como taxa de 
+completabilidade, diversidade estrutural e tempo de geração, além das percepções
+dos participantes durante a avaliação das fases.
+
+Em relação à abordagem do problema, a pesquisa caracteriza-se como mista, 
+combinando procedimentos quantitativos e qualitativos. A abordagem quantitativa 
+será utilizada na coleta e análise de dados numéricos provenientes dos 
+experimentos computacionais e da avaliação dos jogadores, incluindo métricas de 
+desempenho dos geradores e respostas obtidas por meio de questões em escala Likert. 
+A abordagem qualitativa será empregada na análise das respostas abertas dos 
+participantes, buscando identificar percepções e comentários relacionados à 
+dificuldade, à diversão, à variedade e à clareza dos desafios apresentados nas fases.
+
+Quanto aos procedimentos técnicos, a pesquisa caracteriza-se como experimental, 
+uma vez que serão implementadas e comparadas três estratégias de geração 
+procedural: geração aleatória, geração baseada em regras e geração por 
+algoritmos genéticos. A comparação será realizada sob condições controladas, 
+utilizando o mesmo protótipo, modelo de movimentação e física, elementos de 
+construção das fases e critérios de avaliação, de modo a permitir a análise 
+das diferenças entre as estratégias.
+
+Além disso, a pesquisa envolve o desenvolvimento de um protótipo computacional 
+de jogo de plataforma 2D, que servirá como ambiente para implementação dos 
+geradores e realização dos experimentos. O protótipo será utilizado tanto na 
+validação automatizada das fases quanto na avaliação com participantes.
+
+% 3.2 Abordagem metodológica
+\section{Procedimentos Metodológicos}
+\label{sec:procedimentos-metodologicos}
+
+A pesquisa será conduzida em sete etapas, organizadas de modo a permitir o 
+desenvolvimento do protótipo, a implementação das estratégias de geração 
+procedural e a avaliação comparativa dos resultados. 
+As etapas são descritas a seguir.
+
+\begin{enumerate}
+  \item \textbf{Revisão bibliográfica e fundamentação teórica:}
+  Será realizada uma revisão da literatura sobre geração procedural de conteúdo 
+  em jogos digitais, com ênfase na geração de fases de jogos de plataforma 2D. 
+  Serão investigadas as estratégias de geração aleatória, geração baseada em 
+  regras e algoritmos genéticos, bem como técnicas de validação e avaliação de 
+  conteúdo gerado. Essa etapa fornecerá a fundamentação necessária para 
+  orientar as decisões de representação, implementação e avaliação das 
+  estratégias estudadas.
+
+  \item \textbf{Definição da representação computacional das fases:}
+  Será definida a estrutura utilizada para representar computacionalmente as 
+  fases do jogo. Inicialmente, será adotada uma representação baseada em 
+  segmentos ordenados, nos quais cada segmento possuirá atributos relacionados 
+  à sua estrutura, como largura, altura da plataforma, distância até o segmento 
+  seguinte e características dos obstáculos. Essa representação deverá permitir 
+  que as três estratégias de geração produzam fases utilizando uma estrutura 
+  comum, facilitando a comparação entre os resultados.
+
+  \item \textbf{Planejamento e desenvolvimento do protótipo:}
+  Será desenvolvido um protótipo jogável de plataforma 2D utilizando a 
+  linguagem C e a biblioteca raylib. O protótipo contemplará os elementos 
+  necessários aos experimentos, incluindo movimentação do personagem, 
+  gravidade, salto, colisões, plataformas, obstáculos e definição dos pontos 
+  inicial e final das fases. A implementação priorizará as funcionalidades 
+  necessárias à geração e avaliação dos conteúdos, sem a finalidade de 
+  construir um jogo comercial completo.
+
+  \item \textbf{Implementação das estratégias de geração procedural:}
+  Serão implementadas três estratégias de geração de fases: geração aleatória, 
+  geração baseada em regras e geração por algoritmos genéticos. A primeira 
+  produzirá fases por meio do sorteio de características dentro de limites 
+  previamente definidos. A segunda utilizará condições e restrições explícitas 
+  para organizar os segmentos e seus elementos. A terceira utilizará uma 
+  população de fases representadas por sequências de segmentos, aplicando 
+  operadores genéticos de seleção, cruzamento e mutação, além de elitismo e 
+  critérios de parada. As estratégias utilizarão a mesma representação 
+  computacional e respeitarão os limites estruturais definidos para o experimento.
+
+  \item \textbf{Desenvolvimento dos mecanismos de validação e simulação automatizada:}
+  Serão desenvolvidos dois mecanismos complementares para avaliar as fases 
+  geradas. O primeiro será responsável pela validação estrutural, verificando 
+  se as fases respeitam as restrições e os limites definidos para sua 
+  construção, como dimensões, organização dos segmentos e presença dos 
+  elementos obrigatórios.
+
+  O segundo mecanismo será responsável pela avaliação automatizada da 
+  completabilidade, utilizando um simulador do personagem baseado no mesmo 
+  modelo de movimentação e física implementado no protótipo. Esse simulador 
+  verificará se existe uma sequência de ações capaz de conduzir o personagem 
+  até o objetivo final da fase.
+
+  A separação desses mecanismos permitirá identificar fases que, embora 
+  estruturalmente válidas, não possam ser completadas. Os resultados da 
+  simulação também serão utilizados no cálculo da função de aptidão do 
+  algoritmo genético.
+
+  \item \textbf{Realização dos experimentos computacionais e da avaliação humana:}
+  Serão realizados experimentos computacionais para avaliar as fases produzidas 
+  pelas três estratégias, considerando métricas de completabilidade, diversidade 
+  estrutural e desempenho dos geradores. As condições experimentais serão 
+  definidas de modo a possibilitar uma comparação controlada, considerando 
+  parâmetros comuns, como representação das fases, modelo físico, elementos 
+  disponíveis e critérios de validação. Também serão registradas as 
+  configurações e sementes aleatórias utilizadas, quando aplicável, para 
+  favorecer a reprodução dos experimentos.
+
+  Complementarmente, será realizada uma avaliação com participantes, que jogarão
+  fases produzidas pelas diferentes estratégias. Após a experiência, serão 
+  coletadas suas percepções por meio de um questionário com questões em escala 
+  Likert de cinco pontos e uma questão aberta. A avaliação buscará investigar 
+  aspectos como dificuldade percebida, diversão, satisfação, clareza dos 
+  desafios e variedade das fases. Essa etapa será realizada observando os 
+  procedimentos éticos e as exigências institucionais aplicáveis à pesquisa 
+  com participantes humanos.
+
+  \item \textbf{Análise e comparação dos resultados:}
+  Os dados obtidos nos experimentos computacionais e na avaliação humana serão 
+  organizados e analisados de forma comparativa. Serão utilizadas tabelas, 
+  gráficos e medidas estatísticas descritivas para apresentar os resultados das 
+  métricas quantitativas. As respostas abertas serão examinadas e organizadas 
+  por temas recorrentes, permitindo identificar percepções dos participantes 
+  sobre as fases avaliadas. Por fim, os resultados das três estratégias serão 
+  comparados, considerando suas diferenças em completabilidade, diversidade 
+  estrutural, desempenho e experiência dos jogadores.
+
+\end{enumerate}
+
+% 3.3 Ambiente e Participantes
+\section{Ambiente e Participantes}
+\label{sec:ambiente-participantes}
+
+A pesquisa será desenvolvida em ambiente computacional, utilizando um protótipo
+de jogo de plataforma 2D implementado na linguagem C e com o auxílio da 
+biblioteca raylib. Esse ambiente será utilizado para desenvolver e executar as 
+estratégias de geração procedural, realizar a validação estrutural das fases, 
+executar as simulações automatizadas e coletar os dados dos experimentos 
+computacionais.
+
+Os experimentos serão conduzidos utilizando configurações padronizadas para as 
+três estratégias de geração, de modo a garantir condições adequadas de 
+comparação. Serão registrados os parâmetros utilizados pelos geradores e os 
+resultados obtidos durante as execuções, permitindo organizar e analisar os 
+dados produzidos.
+
+Além dos experimentos computacionais, a pesquisa contará com a participação de 
+pessoas que irão jogar fases geradas pelas três estratégias implementadas. 
+Os participantes serão convidados a experimentar as fases no protótipo 
+desenvolvido e, posteriormente, responderão a um questionário destinado a 
+avaliar aspectos relacionados à experiência de jogo, como dificuldade 
+percebida, diversão, satisfação, clareza dos desafios e variedade dos 
+conteúdos apresentados.
+
+A seleção dos participantes será realizada por conveniência, considerando a 
+disponibilidade de voluntários interessados em participar da avaliação. 
+Poderão participar pessoas com diferentes níveis de experiência em jogos de 
+plataforma 2D, incluindo aquelas que já possuem familiaridade com esse gênero 
+e aquelas que não possuem experiência prévia. A experiência dos participantes 
+com esse tipo de jogo será registrada por meio de uma pergunta no questionário, 
+permitindo considerar essa característica durante a análise dos resultados. A 
+quantidade de participantes será definida posteriormente, considerando a 
+viabilidade da pesquisa e o tempo disponível para sua realização.
+
+A participação será voluntária, e os participantes serão informados sobre os 
+objetivos e procedimentos da pesquisa antes da coleta de dados. Serão 
+observadas as exigências éticas e institucionais aplicáveis à realização de 
+pesquisas envolvendo seres humanos.
+
+% 3.5 Tecnologias e ferramentas (para projetos de software)
+\section{Tecnologias e Ferramentas}
+\label{sec:tecnologias-ferramentas}
+
+O desenvolvimento do protótipo e a realização dos experimentos utilizarão 
+ferramentas de programação, compilação, gerenciamento de dependências e 
+versionamento. A escolha dessas tecnologias considera a necessidade de 
+desenvolver um jogo de plataforma 2D, implementar diferentes estratégias 
+de geração procedural e organizar os experimentos computacionais.
+
+O Quadro~\ref{qua:tecnologias} apresenta as principais tecnologias e 
+ferramentas previstas para o projeto.
+
+\begin{table}[htb]
+\caption{Tecnologias e ferramentas previstas}
+\label{qua:tecnologias}
+\begin{tabularx}{\textwidth}{lXl}
+  \toprule
+  \textbf{Tecnologia/Ferramenta} & \textbf{Função no Projeto} & \textbf{Categoria} \\
+  \midrule
+  Linguagem C &
+  Implementação do protótipo, dos geradores procedurais, do simulador e dos 
+  mecanismos de validação. &
+  Linguagem de programação \\
+
+  raylib &
+  Criação da janela, renderização dos elementos gráficos, entrada do usuário 
+  e funcionalidades necessárias ao jogo de plataforma 2D. &
+  Biblioteca gráfica \\
+
+  CMake &
+  Configuração do processo de compilação e organização da construção 
+  do projeto. &
+  Sistema de build \\
+
+  Git &
+  Controle de versões e acompanhamento das alterações realizadas no 
+  código-fonte. &
+  Versionamento \\
+
+  CSV &
+  Armazenamento dos resultados dos experimentos computacionais, incluindo 
+  métricas, configurações dos geradores e informações das fases produzidas. &
+  Formato de dados \\
+
+  \bottomrule
+\end{tabularx}
+\fonte{Elaborado pelo autor (\oano).}
+\end{table}
+
+A linguagem C será utilizada na implementação dos componentes do sistema, 
+incluindo a lógica do jogo, a representação das fases, os algoritmos de geração 
+procedural e os mecanismos de avaliação. A biblioteca raylib será empregada 
+para fornecer os recursos gráficos e de interação necessários à execução do 
+protótipo.
+
+O CMake será utilizado para organizar e configurar a compilação do projeto, 
+enquanto o Git permitirá o controle de versões do código-fonte e o 
+acompanhamento das modificações realizadas durante o desenvolvimento.
+
+Os resultados obtidos durante os experimentos serão registrados em arquivos no 
+formato CSV (Comma-Separated Values), permitindo armazenar e organizar 
+informações relacionadas às fases geradas, às estratégias utilizadas, às 
+configurações experimentais e às métricas coletadas. Esse formato facilitará 
+a posterior análise dos dados e a elaboração de tabelas e gráficos para 
+apresentação dos resultados.
+
+% 3.5 Considerações éticas
+\section{Considerações Éticas}
+\label{sec:consideracoes-eticas}
+
+Esta pesquisa envolve seres humanos e, portanto, será submetida
+ao Comitê de Ética em Pesquisa (CEP) da instituição, conforme
+a Resolução CNS 466/2012. Os participantes serão informados
+sobre os objetivos da pesquisa e assinarão o Termo de
+Consentimento Livre e Esclarecido (TCLE) antes da coleta
+de dados. A identidade dos participantes será mantida em
+sigilo em todas as etapas da pesquisa.

@@ -1,0 +1,773 @@
+% ============================================================
+%  SEÇÃO 2 — REFERENCIAL TEÓRICO
+%
+%  O referencial teórico mostra que você conhece a área.
+%  Organize por TEMAS, não por autores.
+%  Estrutura sugerida:
+%    2.1 Conceito principal do seu tema
+%    2.2 Tecnologia / abordagem central
+%    2.3 Trabalhos relacionados (o que já foi feito)
+%
+%  Dica: mínimo de 15 referências citadas no texto (Ficha I).
+%  Tamanho sugerido: 8 a 15 páginas
+% ============================================================
+
+\chapter{REFERENCIAL TEÓRICO}
+\label{cap:referencial}
+
+\section{Geração Procedural de Conteúdo em Jogos Digitais}
+\label{sec:pcg}
+
+A geração procedural de conteúdo, conhecida pela sigla PCG
+(\textit{Procedural Content Generation}), corresponde ao uso de
+algoritmos e procedimentos computacionais para produzir
+automaticamente, ou com algum grau de intervenção humana,
+elementos que compõem um jogo digital. Esses elementos podem
+incluir fases, mapas, cenários, personagens, itens, regras
+e outros componentes necessários à experiência de jogo.
+Hendrikx et al. (2013) apresentam uma classificação dos
+diferentes tipos de conteúdo que podem ser gerados
+proceduralmente, organizando-os em categorias como espaço,
+sistemas, cenários e design. Complementarmente, Shaker,
+Togelius e Nelson (2016) discutem os principais métodos e
+as aplicações da geração procedural no desenvolvimento
+de jogos digitais \cite{Hendrikx2013,Shaker2016,TogeliusSearch2016}.
+
+A utilização da geração procedural está relacionada a
+diferentes objetivos no desenvolvimento de jogos. Entre
+eles, destacam-se a possibilidade de produzir grandes
+quantidades de conteúdo, ampliar a variedade de experiências
+oferecidas ao jogador, aumentar a reaproveitabilidade dos
+elementos de um jogo e auxiliar o trabalho de designers.
+Entretanto, a geração automática não significa,
+necessariamente, que o conteúdo produzido seja adequado
+ou interessante. Um algoritmo pode gerar uma grande
+quantidade de fases, mas ainda assim produzir estruturas
+repetitivas, desafios desbalanceados ou elementos
+incompatíveis com as regras do jogo. Portanto, a qualidade
+do conteúdo gerado constitui uma questão central no
+desenvolvimento de sistemas de PCG
+\cite{Hendrikx2013,Shaker2016,MalekiZhao2024}.
+
+No contexto da PCG, existem diferentes estratégias para
+produzir conteúdo. Shaker et al. (2016) apresentam métodos
+construtivos, nos quais o conteúdo é produzido diretamente
+por procedimentos previamente definidos, enquanto Togelius
+e Shaker (2016) discutem abordagens baseadas em busca,
+que exploram diferentes soluções candidatas por meio
+de critérios de avaliação. Também existem abordagens
+baseadas em regras e mecânicas, que utilizam condições
+formais para determinar como os elementos de um jogo
+podem ser organizados \cite{ShakerConstructive2016,
+TogeliusSearch2016,NelsonRules2016}.
+
+Uma distinção importante na literatura é aquela entre
+métodos construtivos e métodos baseados em busca. Nos
+métodos construtivos, o conteúdo é produzido por meio
+de um procedimento previamente definido, sem que seja
+necessário avaliar repetidamente o resultado para gerar
+novas alternativas. Já os métodos baseados em busca
+produzem e avaliam diferentes candidatos, utilizando
+uma função de avaliação para orientar a procura por
+soluções que atendam a determinados objetivos
+\cite{ShakerConstructive2016,Togelius2011}.
+
+Além dessas abordagens, a PCG também pode utilizar
+técnicas de aprendizado de máquina. Nesse caso, modelos
+computacionais são treinados a partir de conteúdos
+existentes para identificar padrões e produzir novos
+elementos com características semelhantes às dos dados
+utilizados no treinamento. Summerville et al. (2018)
+apresentam uma revisão sobre a geração procedural por
+aprendizado de máquina, discutindo diferentes modelos
+e suas aplicações na criação de conteúdo funcional
+para jogos, incluindo fases de jogos de plataforma.
+Essa abordagem representa uma alternativa aos métodos
+construtivos e de busca, mas depende de dados adequados
+para o treinamento e apresenta desafios relacionados
+à representação e à avaliação do conteúdo produzido
+\cite{Summerville2018}.
+
+Mais recentemente, Maleki e Zhao (2024) discutem a
+evolução das técnicas de PCG, abordando métodos baseados
+em busca, aprendizado de máquina, funções de ruído
+e modelos de linguagem de grande escala. Os autores
+também discutem possibilidades de combinação entre
+diferentes técnicas. Essa diversidade demonstra que
+a geração procedural não está limitada a um único
+tipo de algoritmo, mas compreende um conjunto de
+estratégias que podem ser selecionadas de acordo
+com o tipo de conteúdo e os objetivos do sistema.
+
+No contexto desta pesquisa, a geração procedural é
+aplicada especificamente à criação de fases de jogos
+de plataforma 2D. O interesse não está apenas em
+produzir estruturas diferentes, mas em investigar
+se as fases geradas podem ser completadas de acordo
+com as mecânicas e as regras do jogo. Assim, a geração
+de conteúdo deve ser acompanhada por procedimentos
+que permitam verificar a validade das estruturas
+e avaliar características como completabilidade,
+diversidade e desempenho dos geradores.
+
+\subsection{Avaliação da qualidade do conteúdo gerado}
+
+A avaliação é uma etapa necessária para compreender se
+um sistema de geração procedural atende aos objetivos
+para os quais foi desenvolvido. A quantidade de conteúdo
+produzido, isoladamente, não é suficiente para determinar
+a qualidade de um gerador. É necessário considerar
+características relacionadas à funcionalidade, à variedade
+e à adequação do conteúdo ao contexto do jogo
+\cite{ShakerSmithYannakakis2016,Khalifa2025}.
+
+Khalifa et al. (2025) apresentam o
+\textit{Procedural Content Generation Benchmark}, uma
+estrutura de avaliação que reúne diferentes problemas
+de geração de conteúdo para jogos. O trabalho considera
+três dimensões principais: qualidade, diversidade e
+controlabilidade. A qualidade está relacionada ao
+atendimento dos critérios funcionais definidos para
+o problema; a diversidade considera a variedade dos
+conteúdos produzidos; e a controlabilidade avalia se
+o gerador consegue respeitar parâmetros de controle
+estabelecidos. Os autores demonstram que diferentes
+algoritmos podem apresentar desempenhos distintos
+conforme o problema e os objetivos de geração
+\cite{Khalifa2025}.
+
+Outra abordagem de avaliação é a análise do espaço
+de possibilidades que um gerador consegue produzir,
+frequentemente denominada \textit{Expressive Range
+Analysis} (ERA). Essa análise busca compreender quais
+tipos de conteúdo são produzidos, quais características
+variam e quais limitações podem estar presentes no
+algoritmo. Smith e Whitehead (2010), por exemplo,
+aplicaram essa perspectiva ao gerador Launchpad,
+desenvolvido para produzir fases de jogos de plataforma
+2D. Os autores utilizaram características como
+linearidade e leniência dos níveis para analisar
+a variedade dos resultados e identificar tendências
+e limitações do gerador \cite{SmithWhitehead2010}.
+
+A avaliação também pode envolver a participação de
+jogadores. Nesse caso, os participantes interagem com
+o conteúdo gerado e fornecem informações sobre aspectos
+que nem sempre podem ser representados adequadamente
+por métricas computacionais, como diversão, satisfação
+e dificuldade percebida. Shaker, Smith e Yannakakis
+(2016) discutem a utilização de visualizações do espaço
+expressivo e questionários para compreender diferentes
+aspectos da qualidade dos geradores. De maneira
+complementar, Summerville et al. (2017) investigam
+a relação entre métricas computacionais de fases
+de plataforma e avaliações humanas. Essas abordagens
+podem ser complementares: as métricas automatizadas
+permitem avaliar grandes quantidades de conteúdo,
+enquanto a avaliação humana contribui para compreender
+como os jogadores percebem e experimentam esse conteúdo
+\cite{ShakerSmithYannakakis2016,Summerville2017}.
+
+Dessa maneira, a avaliação de um gerador procedural
+deve considerar os objetivos específicos da aplicação.
+Para a geração de fases de plataforma 2D, é importante
+verificar se as estruturas respeitam as restrições
+do jogo, se existe ao menos um caminho de conclusão
+segundo o modelo de movimentação considerado e se
+os conteúdos produzidos apresentam diferenças
+relevantes entre si. Além disso, a avaliação com
+jogadores permite investigar se as características
+identificadas computacionalmente correspondem à
+experiência percebida durante a interação.
+
+\section{Geração Procedural de Fases em Jogos de Plataforma 2D}
+\label{sec:geracao-fases}
+
+A geração procedural de fases consiste na utilização de
+métodos computacionais para construir ambientes e desafios
+que serão percorridos pelo jogador durante uma partida.
+Em jogos de plataforma 2D, esses ambientes podem ser
+compostos por terrenos, plataformas, espaços vazios,
+obstáculos e pontos de início e término. A disposição
+desses elementos influencia as possibilidades de
+movimentação do personagem e os desafios apresentados
+ao jogador.
+
+A geração de fases nesse gênero apresenta desafios
+relacionados à interação entre a estrutura do ambiente
+e as mecânicas de movimentação. A distância horizontal
+entre plataformas, as diferenças de altura, a presença
+de obstáculos e o espaço disponível para saltos podem
+determinar se uma região é alcançável. Dessa forma,
+uma fase que apresenta uma organização geométrica
+aparentemente válida não é necessariamente completável.
+
+Essa distinção é importante porque a geração de uma
+estrutura e a verificação de sua jogabilidade representam
+problemas diferentes. A estrutura pode respeitar limites
+de dimensão e posicionamento, mas ainda apresentar
+uma sequência de plataformas que não pode ser alcançada
+considerando a velocidade, a gravidade e as características
+do salto do personagem. Portanto, a avaliação de fases
+de plataforma precisa considerar as regras que determinam
+a movimentação e a interação com o ambiente.
+
+Summerville et al. (2017) apresentam métricas para
+descrever características de fases de plataforma e
+investigam sua relação com avaliações humanas. O estudo
+considera aspectos como dificuldade percebida, estética
+visual e diversão, demonstrando a importância de
+relacionar características estruturais das fases com
+a experiência dos jogadores. Essa abordagem contribui
+para compreender que a avaliação de uma fase não deve
+se limitar à sua representação geométrica.
+
+A construção de fases também pode utilizar restrições
+e estruturas previamente definidas. Shaker et al. (2016)
+apresentam métodos construtivos para geração de níveis,
+nos quais procedimentos e condições determinam como
+os elementos são organizados. Dormans (2010), por sua
+vez, discute o uso de gramáticas generativas para
+construir missões e espaços em jogos de ação e aventura.
+Embora o domínio investigado pelo autor não seja
+exatamente o mesmo deste trabalho, sua discussão
+contribui para compreender como regras formais podem
+organizar estruturas de conteúdo.
+
+\subsection{Estratégias de geração de fases}
+
+Esta pesquisa considera três estratégias de geração
+procedural: geração aleatória, geração baseada em regras
+e geração por algoritmos genéticos. Essas abordagens
+foram selecionadas por representarem diferentes
+estratégias de construção e modificação de fases.
+Embora possam compartilhar determinados mecanismos,
+serão implementadas separadamente para permitir
+a comparação de seus resultados.
+
+A geração aleatória utiliza sorteios para determinar
+características do conteúdo produzido. Em fases de
+plataforma 2D, esses sorteios podem definir a largura
+dos segmentos, a altura das plataformas, a distância
+entre elas e a presença ou o tipo de obstáculos. Os
+valores podem ser selecionados dentro de intervalos
+previamente estabelecidos, de modo que o gerador
+respeite limites básicos da representação.
+
+A utilização de intervalos e restrições não elimina
+o caráter aleatório do método. O sorteio continua
+determinando as configurações produzidas, mas ocorre
+dentro de um conjunto de possibilidades definido
+pelo desenvolvedor. Essa estratégia pode ser utilizada
+como referência de comparação, ou \textit{baseline},
+para avaliar os resultados de métodos que incorporam
+mecanismos adicionais de orientação ou otimização.
+
+A geração aleatória, entretanto, não possui necessariamente
+um mecanismo próprio para aperfeiçoar os conteúdos
+produzidos. A qualidade das fases depende dos intervalos
+e das restrições definidos para os sorteios. Mesmo quando
+os valores estão dentro dos limites permitidos, a
+combinação entre plataformas e obstáculos pode resultar
+em uma fase difícil ou impossível de completar.
+
+A geração baseada em regras utiliza condições explícitas
+para determinar como os elementos podem ser organizados.
+Essas condições podem estabelecer limites para a distância
+entre plataformas, diferenças máximas de altura,
+combinações permitidas de obstáculos e sequências de
+segmentos. O gerador utiliza essas condições durante
+a construção da fase, restringindo as configurações
+que podem ser produzidas.
+
+Nelson et al. (2016) discutem a utilização de regras
+e mecânicas para representar as condições que
+determinam o funcionamento e a organização de
+elementos em jogos. Métodos construtivos, apresentados
+por Shaker et al. (2016), também demonstram possibilidades
+de utilizar procedimentos e restrições para organizar
+conteúdos. Entretanto, é importante distinguir uma
+geração baseada em regras simples de uma gramática
+generativa: embora ambas possam utilizar condições
+explícitas, as gramáticas definem estruturas e regras
+de produção que permitem derivar novas configurações
+a partir de elementos e relações formais
+\cite{NelsonRules2016,ShakerConstructive2016,
+TogeliusGrammars2016}.
+
+A utilização de regras pode reduzir a ocorrência de
+determinadas configurações inválidas, mas não garante,
+por si só, que a fase possa ser completada. Uma sequência
+de plataformas pode respeitar os limites de altura e
+distância definidos e ainda ser incompatível com a
+capacidade de salto do personagem. Por esse motivo,
+a validação estrutural e a verificação de completabilidade
+precisam ser tratadas como procedimentos distintos.
+
+A terceira estratégia considerada é a geração por
+algoritmos genéticos. Diferentemente dos métodos que
+constroem diretamente uma fase a partir de sorteios
+ou regras, os algoritmos genéticos mantêm uma população
+de soluções candidatas e utilizam um processo evolutivo
+para produzir novas alternativas. Cada indivíduo é
+avaliado por uma função de aptidão, que orienta a
+seleção dos candidatos que participarão das próximas
+etapas do processo \cite{Goldberg1989,Togelius2011}.
+
+A aplicação de algoritmos genéticos à geração de fases
+permite explorar diferentes configurações e modificar
+soluções existentes de acordo com critérios definidos
+para o problema. Entretanto, o desempenho dessa
+abordagem depende da representação adotada, da função
+de aptidão, dos operadores genéticos e dos parâmetros
+utilizados. Esses aspectos serão discutidos na seção
+seguinte.
+
+Para permitir uma comparação adequada, as três
+estratégias desta pesquisa serão aplicadas ao mesmo
+domínio de jogo e deverão respeitar os mesmos limites
+estruturais, sempre que possível. Dessa maneira,
+pretende-se investigar as diferenças entre os métodos
+considerando a completabilidade das fases, a diversidade
+estrutural e o desempenho dos geradores.
+
+\section{Algoritmos Genéticos Aplicados à Geração de Fases}
+\label{sec:algoritmos-geneticos}
+
+Os algoritmos genéticos são métodos de busca e otimização
+inspirados em mecanismos da evolução biológica, como
+seleção, reprodução e mutação. Esses algoritmos trabalham
+com um conjunto de soluções candidatas, denominado
+população, que passa por sucessivas gerações. Cada
+indivíduo representa uma possível solução para o
+problema, e sua qualidade é estimada por uma função
+de aptidão, também conhecida como \textit{fitness}
+\cite{Goldberg1989,Mitchell1996,EibenSmith2003}.
+
+De maneira geral, o funcionamento de um algoritmo
+genético envolve a criação de uma população inicial,
+a avaliação dos indivíduos, a seleção de candidatos
+para reprodução, a aplicação de operadores genéticos
+e a formação de uma nova população. Esse processo
+é repetido até que seja atingido um critério de parada,
+que pode corresponder a um número máximo de gerações,
+a um limite de tempo ou à obtenção de uma solução
+que satisfaça determinada condição
+\cite{Goldberg1989,EibenSmith2003}.
+
+No contexto da geração procedural de fases, cada
+indivíduo pode representar uma fase completa ou
+uma parte dela. A representação precisa permitir
+que o algoritmo manipule os elementos do cenário
+e produza novas configurações que possam ser
+interpretadas pelo jogo. Togelius et al. (2011)
+destacam que a representação do conteúdo e a
+avaliação de sua qualidade são aspectos fundamentais
+dos sistemas de geração procedural baseados em
+busca \cite{Togelius2011}.
+
+\subsection{Representação dos indivíduos e função de aptidão}
+
+A representação dos indivíduos, também denominada
+codificação, define como uma solução candidata será
+armazenada e manipulada pelo algoritmo genético.
+Em problemas de geração de fases, essa representação
+pode utilizar sequências, matrizes, grafos ou outras
+estruturas de dados, dependendo das características
+do conteúdo e dos operadores que serão aplicados
+\cite{Togelius2011,EibenSmith2003}.
+
+A representação também influencia quais modificações
+podem ser realizadas durante o processo evolutivo.
+Uma codificação em matriz, por exemplo, permite
+alterar elementos em posições específicas do cenário.
+Já uma representação em sequência permite modificar
+a ordem, a quantidade e os atributos dos componentes
+que formam a fase.
+
+A função de aptidão é responsável por atribuir uma
+avaliação a cada indivíduo. Seu objetivo é orientar
+o processo evolutivo em direção às características
+consideradas desejáveis para o problema. Em sistemas
+de geração de fases, a avaliação pode considerar
+propriedades como completabilidade, dificuldade,
+estrutura ou outras características relevantes.
+A definição dos critérios deve estar alinhada aos
+objetivos da geração, pois o algoritmo tende a
+favorecer as características que recebem maior
+importância na avaliação
+\cite{Goldberg1989,Togelius2011}.
+
+A função de aptidão não deve ser confundida com
+uma avaliação completa da qualidade do conteúdo.
+Ela representa os critérios utilizados pelo algoritmo
+para orientar a busca. Assim, uma fase que recebe
+uma pontuação elevada segundo determinada função
+não é necessariamente a mais interessante para
+os jogadores. A escolha das métricas e dos pesos
+precisa considerar as limitações da representação
+e os objetivos da pesquisa.
+
+\subsection{Operadores genéticos}
+
+Os operadores genéticos são responsáveis por
+selecionar indivíduos e produzir novas soluções
+a partir da população existente. Entre os operadores
+mais utilizados estão a seleção, o cruzamento e
+a mutação. A aplicação desses operadores permite
+explorar o espaço de soluções e preservar
+características consideradas promissoras
+\cite{Goldberg1989,Mitchell1996,EibenSmith2003}.
+
+A seleção define quais indivíduos terão maiores
+chances de participar da reprodução. Um dos métodos
+possíveis é a seleção por torneio. Nesse procedimento,
+um pequeno grupo de indivíduos é escolhido
+aleatoriamente e aquele que apresenta a melhor
+aptidão dentro do grupo é selecionado. O processo
+pode ser repetido até que seja obtido o conjunto
+de indivíduos necessário para a reprodução
+\cite{EibenSmith2003}.
+
+O cruzamento, ou recombinação, combina características
+de dois indivíduos para produzir novos candidatos.
+No cruzamento em um ponto, uma posição da
+representação é selecionada e os componentes
+anteriores e posteriores a essa posição são
+combinados entre os dois indivíduos. Dessa forma,
+os descendentes podem herdar partes diferentes
+das soluções utilizadas como pais
+\cite{Goldberg1989,Mitchell1996}.
+
+A mutação introduz alterações nos indivíduos,
+contribuindo para explorar novas configurações
+e reduzir a dependência exclusiva das características
+presentes na população atual. A forma de mutação
+depende da representação adotada e pode envolver
+a alteração de valores, a substituição de elementos
+ou a modificação da estrutura da solução
+\cite{EibenSmith2003}.
+
+Outra estratégia possível é o elitismo, que preserva
+uma quantidade dos melhores indivíduos de uma
+geração para a geração seguinte. Seu objetivo é
+evitar que soluções com boa aptidão sejam perdidas
+em decorrência das operações de cruzamento e
+mutação. A quantidade de indivíduos preservados
+deve ser definida como um parâmetro do algoritmo,
+pois a preservação excessiva pode reduzir a
+exploração de novas soluções
+\cite{Goldberg1989,EibenSmith2003}.
+
+A aplicação dos operadores pode produzir indivíduos
+que não respeitam as restrições da representação.
+Por esse motivo, determinados sistemas utilizam
+procedimentos de validação ou reparação para
+corrigir soluções estruturalmente inválidas. Essa
+correção, entretanto, não significa necessariamente
+que a solução seja adequada ao problema. No caso
+de fases de plataforma, uma fase pode apresentar
+dimensões válidas e ainda não possuir um percurso
+completável.
+
+\subsection{Aplicação de algoritmos genéticos à geração de fases}
+
+A geração procedural baseada em busca utiliza
+algoritmos de otimização para explorar diferentes
+conteúdos e selecionar soluções de acordo com
+critérios definidos. Togelius et al. (2011)
+apresentam uma taxonomia dessa abordagem,
+considerando o tipo de conteúdo produzido, sua
+representação e a função utilizada para avaliar
+a qualidade das soluções. Os autores também
+discutem aplicações de algoritmos evolutivos
+na geração automática de conteúdo para jogos
+\cite{Togelius2011}.
+
+Sabraw e Churchill (2022) apresentam um sistema
+baseado em algoritmo genético para produzir fases
+de um jogo de plataforma 2D em um ambiente
+desenvolvido pelos próprios autores. O trabalho
+utiliza uma representação em grade e investiga
+diferentes configurações de elementos, restrições
+espaciais e critérios de aptidão. A avaliação
+considera o deslocamento do personagem para
+a direita e, em experimentos específicos, a
+redução da quantidade de blocos desnecessários
+\cite{SabrawChurchill2022}.
+
+Uma característica importante do trabalho de
+Sabraw e Churchill (2022) é que as fases são
+\textit{auto-play}. Nesse modelo, o personagem
+não é controlado diretamente pelo jogador;
+sua movimentação é produzida pelas propriedades
+físicas e pela geometria do cenário. Portanto,
+o estudo demonstra uma aplicação de algoritmos
+genéticos à geração de fases de plataforma, mas
+não representa diretamente a experiência de
+um jogador que controla o personagem por meio
+de comandos \cite{SabrawChurchill2022}.
+
+A utilização de algoritmos genéticos na geração
+de fases também apresenta desafios relacionados
+ao custo de avaliação. Quando cada indivíduo
+precisa ser executado em uma simulação para
+receber sua aptidão, o tempo necessário para
+avaliar a população pode influenciar o desempenho
+do sistema. Além disso, a escolha dos operadores
+e da representação pode afetar a variedade das
+soluções e a capacidade de explorar diferentes
+configurações.
+
+Dessa forma, a aplicação de algoritmos genéticos
+à geração de fases exige a definição conjunta
+da representação, da função de aptidão, dos
+operadores e dos critérios de parada. Esses
+elementos precisam estar relacionados aos
+objetivos do gerador e às características do
+jogo em que as fases serão utilizadas.
+
+\section{Trabalhos Relacionados}
+\label{sec:trabalhos-relacionados}
+
+Esta seção apresenta trabalhos que investigam a geração
+procedural de fases, a avaliação de conteúdos de jogos
+de plataforma e a comparação entre sistemas de geração.
+A análise considera os objetivos de cada estudo, as
+técnicas utilizadas, os principais resultados e as
+diferenças em relação à proposta desta pesquisa.
+
+\subsection{Generating 2D Platforming Auto-Play Levels with Genetic Algorithms}
+
+\textcite{SabrawChurchill2022} investigam a utilização de
+algoritmos genéticos para gerar fases de um jogo de
+plataforma 2D em um motor desenvolvido pelos próprios
+autores. O sistema utiliza diferentes elementos de
+cenário, como chão, blocos, esteiras e plataformas
+com propriedades específicas. As fases são representadas
+em uma estrutura de grade, que permite organizar os
+elementos e aplicar operações durante o processo
+evolutivo.
+
+Os autores investigam diferentes configurações de
+geração, incluindo a aleatorização de elementos,
+alterações de parâmetros e restrições no espaço
+disponível para a construção das fases. A avaliação
+considera o deslocamento do personagem para a direita,
+e os experimentos também investigam uma função de
+aptidão denominada \textit{least-blocks}, utilizada
+para reduzir a quantidade de blocos desnecessários.
+Os resultados apresentam efeitos positivos e negativos
+dessa alteração, indicando que a redução de elementos
+pode modificar a organização das fases e produzir
+configurações excessivamente escassas em determinadas
+situações \cite{SabrawChurchill2022}.
+
+A principal contribuição desse estudo para esta
+pesquisa está na demonstração de que algoritmos
+genéticos podem ser aplicados à geração de fases
+de plataforma 2D, utilizando uma representação
+computacional e critérios de avaliação automatizada.
+Entretanto, existe uma diferença importante entre
+os dois trabalhos: as fases produzidas por Sabraw
+e Churchill (2022) são do tipo \textit{auto-play},
+nas quais o personagem não é controlado diretamente
+pelo jogador. No presente TCC, pretende-se gerar
+fases para um jogo em que o participante controla
+o personagem, o que exige considerar as ações
+de movimentação e salto durante a avaliação de
+completabilidade \cite{SabrawChurchill2022}.
+
+\subsection{Understanding Mario: An Evaluation of Design Metrics for Platformers}
+
+\textcite{Summerville2017} investigam métricas para
+avaliar a qualidade de fases de jogos de plataforma.
+O trabalho apresenta um conjunto de medidas
+computacionais e analisa sua relação com avaliações
+humanas de dificuldade percebida, estética visual
+e diversão. Os experimentos são realizados no
+contexto do jogo Infinite Mario Bros., permitindo
+comparar os valores obtidos pelas métricas com
+as avaliações fornecidas pelos participantes.
+
+Os resultados demonstram que algumas métricas
+apresentam correlações relevantes com as avaliações
+humanas, chegando a valores próximos dos limites
+empíricos estabelecidos pela concordância entre
+avaliadores. O estudo contribui para compreender
+como características computacionais de uma fase
+podem representar aspectos da experiência dos
+jogadores, embora não se possa considerar que
+uma métrica isolada descreva integralmente essa
+experiência \cite{Summerville2017}.
+
+A relação desse trabalho com o presente TCC está
+na possibilidade de utilizar características
+mensuráveis das fases para apoiar sua avaliação.
+Entretanto, Summerville et al. (2017) concentram-se
+na análise de métricas e em sua relação com
+avaliações humanas, enquanto esta pesquisa
+pretende comparar três estratégias de geração
+procedural em um protótipo próprio. As métricas
+serão utilizadas para analisar os conteúdos
+produzidos, em conjunto com a verificação de
+completabilidade e a avaliação dos participantes.
+
+\subsection{Evaluating the Expressive Range of Super Mario Bros Level Generators}
+
+\textcite{SchaaBarriga2024} apresentam uma avaliação
+do espaço expressivo de três geradores automáticos
+de fases de \textit{Super Mario Bros.}. Os sistemas
+investigados utilizam diferentes abordagens:
+algoritmo genético com múltiplas populações, uma
+rede adversarial generativa convolucional profunda
+(DCGAN) combinada com uma estratégia de adaptação
+de matriz de covariância (CMA-ES) e cadeias de
+Markov. Os autores também consideram as fases
+originais utilizadas como referência para a
+comparação.
+
+A avaliação utiliza a técnica de
+\textit{Expressive Range Analysis} (ERA), com
+nove métricas relacionadas à estrutura e à
+dificuldade das fases. Foram geradas 200 fases
+para cada gerador, permitindo analisar a
+distribuição das características dos conteúdos
+produzidos. Os resultados indicam diferenças
+na amplitude do espaço expressivo dos sistemas,
+além de limitações relacionadas à convergência
+antecipada e à produção de conteúdos pouco
+variados ou incoerentes em determinadas
+abordagens \cite{SchaaBarriga2024}.
+
+Esse trabalho contribui para a presente pesquisa
+por demonstrar a utilização de métricas para
+comparar a diversidade e as características
+estruturais de fases de plataforma. Entretanto,
+seu foco está na análise do espaço expressivo
+de geradores existentes para
+\textit{Super Mario Bros.}, enquanto este TCC
+pretende implementar e comparar três estratégias
+em um mesmo protótipo. Além disso, a proposta
+inclui a avaliação da completabilidade por
+simulação e a participação de jogadores.
+
+\subsection{On the Evaluation of Procedural Level Generation Systems}
+
+\textcite{Withington2024} investigam
+as práticas de avaliação utilizadas em sistemas
+de geração procedural de fases. Os autores
+desenvolvem uma taxonomia para organizar as
+abordagens de avaliação e analisam publicações
+acadêmicas recentes, buscando identificar como
+os pesquisadores verificam a qualidade dos
+conteúdos produzidos e comparam seus sistemas.
+
+A taxonomia considera quatro dimensões:
+o método de coleta de dados, as métricas e
+características calculadas, o ponto de comparação
+utilizado para avaliar o desempenho e o domínio
+de jogo em que o sistema foi testado. A análise
+abrange 86 trabalhos acadêmicos e evidencia
+que ainda existe pouca uniformidade nas
+práticas de avaliação. Os autores apontam
+a importância de descrições mais transparentes
+dos sistemas, da diversidade de estruturas
+de pesquisa e do reaproveitamento de códigos
+e metodologias \cite{Withington2024}.
+
+A contribuição desse trabalho para o presente
+TCC está na fundamentação da necessidade de
+definir critérios de avaliação explícitos e
+adequados ao problema investigado. A proposta
+considera essa preocupação ao estabelecer
+três níveis de avaliação: validação estrutural,
+avaliação automatizada e avaliação com
+participantes. Dessa forma, pretende-se
+documentar as condições de comparação e
+utilizar métricas que representem diferentes
+aspectos dos geradores.
+
+\subsection{The Procedural Content Generation Benchmark: An Open-source Testbed for Generative Challenges in Games}
+
+\textcite{Khalifa2025} apresentam o
+\textit{Procedural Content Generation Benchmark},
+uma estrutura de código aberto desenvolvida
+para avaliar algoritmos de geração procedural
+em diferentes problemas relacionados a jogos.
+O benchmark reúne 12 problemas, cada um com
+múltiplas variantes, que abrangem desde a
+geração de fases até a criação de conjuntos
+de regras para jogos simples. Cada problema
+possui representação, parâmetros de controle
+e métricas próprias.
+
+Os autores propõem avaliar os conteúdos
+produzidos considerando três dimensões:
+qualidade, diversidade e controlabilidade.
+O benchmark também é utilizado para comparar
+três algoritmos de referência: um gerador
+aleatório, uma estratégia evolutiva e um
+algoritmo genético. Os resultados demonstram
+que a dificuldade de geração varia conforme
+o problema e que a escolha dos objetivos
+de avaliação influencia a qualidade, a
+diversidade e a controlabilidade dos conteúdos
+produzidos \cite{Khalifa2025}.
+
+Esse trabalho contribui para a presente
+pesquisa por apresentar uma referência
+metodológica para a comparação sistemática
+de diferentes algoritmos de geração. Entretanto,
+seu escopo abrange diversos problemas de
+conteúdo para jogos, enquanto este TCC
+concentra-se em fases de plataforma 2D.
+A proposta também pretende avaliar a
+completabilidade considerando as mecânicas
+de movimentação do personagem e investigar
+a experiência dos participantes durante
+a interação com as fases.
+
+\subsection{Síntese dos trabalhos relacionados}
+
+Os trabalhos analisados demonstram que a
+geração procedural de fases de plataforma
+pode ser investigada a partir de diferentes
+perspectivas. Sabraw e Churchill (2022)
+exploram o uso de algoritmos genéticos em
+fases de plataforma \textit{auto-play};
+Summerville et al. (2017) investigam métricas
+computacionais e sua relação com avaliações
+humanas; Schaa e Barriga (2024) analisam o
+espaço expressivo de diferentes geradores;
+Withington, Cook e Tokarchuk (2024) discutem
+as práticas de avaliação utilizadas na
+literatura; e Khalifa et al. (2025) apresentam
+um benchmark para comparar algoritmos em
+diferentes problemas de geração 
+\cite{SabrawChurchill2022,Summerville2017,
+SchaaBarriga2024,Withington2024,Khalifa2025}.
+
+A partir desses estudos, observa-se a
+importância de avaliar os sistemas de
+geração por mais de uma dimensão. A
+produção de fases estruturalmente válidas
+não garante que elas sejam completáveis,
+assim como a completabilidade não representa,
+isoladamente, a qualidade da experiência
+oferecida ao jogador. Também é necessário
+considerar a diversidade dos conteúdos e
+o custo computacional envolvido na geração.
+
+Diferentemente dos trabalhos apresentados,
+esta pesquisa propõe comparar três
+estratégias de geração procedural:
+aleatória, baseada em regras e por
+algoritmos genéticos, aplicadas a um
+mesmo protótipo de jogo de plataforma 2D.
+A comparação considera condições
+controladas de representação e funcionamento
+do jogo, além de critérios relacionados
+à completabilidade, à diversidade
+estrutural, ao desempenho dos geradores
+e à experiência dos jogadores.
