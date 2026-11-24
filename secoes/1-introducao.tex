@@ -1,54 +1,86 @@
-% ============================================================
-%  SEÇÃO 1 — INTRODUÇÃO
-%
-%  A introdução deve responder a 4 perguntas:
-%    1. Qual é o contexto do problema? (por que isso importa?)
-%    2. Qual é o problema de pesquisa? (o que você vai investigar?)
-%    3. Quais são os seus objetivos?
-%    4. Como este trabalho está organizado?
-%
-%  Tamanho sugerido: 2 a 4 páginas
-% ============================================================
-
 \chapter{INTRODUÇÃO}
-
-% ----------------------------------------------------------
-% 1.1 CONTEXTUALIZAÇÃO
-% Apresente o cenário em que o problema está inserido.
-% Use dados, estatísticas ou referências para situar o leitor.
-% ----------------------------------------------------------
 
 \section{Contextualização}
 
-% %->  ESCREVA AQUI a contextualização do seu tema.
-%     Responda: Por que este assunto é relevante hoje?
-%               Qual é o cenário que motivou sua pesquisa?
-%
-% Exemplo de início:
-% A crescente digitalização dos serviços públicos no Brasil tem
-% evidenciado desafios relacionados à eficiência no atendimento
-% presencial \cite{autor2022}. Segundo \textcite{autor2023}, ...
+A geração procedural de conteúdo, conhecida pela sigla PCG 
+(\textit{Procedural Content Generation}), consiste na utilização de métodos 
+computacionais para produzir conteúdos destinados a jogos digitais. 
+Sua aplicação abrange diferentes elementos, como mapas, fases, cenários, 
+itens e regras, oferecendo possibilidades de criação e variação de conteúdos 
+sem que cada elemento precise ser elaborado individualmente. 
+Hendrikx et al. (2013) apresentam uma classificação dos tipos de conteúdo 
+que podem ser gerados por essas técnicas, enquanto Maleki e Zhao (2024) 
+discutem diferentes abordagens empregadas em jogos, incluindo métodos baseados 
+em busca, aprendizado de máquina e procedimentos construtivos 
+\cite{Hendrikx2013,MalekiZhao2024}.
 
-[Escreva a contextualização aqui. Cite ao menos 2 referências neste parágrafo.]
+Entre as aplicações da PCG, a geração de fases para jogos de plataforma 2D 
+apresenta particularidades relacionadas à organização do cenário e às 
+possibilidades de movimentação do personagem. A disposição das plataformas, 
+os desníveis, os vãos e os obstáculos influencia os caminhos disponíveis e os 
+desafios enfrentados durante a partida. Nesse contexto, produzir uma fase 
+estruturalmente válida não implica, necessariamente, produzir uma fase que 
+possa ser completada pelo jogador. Por esse motivo, além da construção dos 
+cenários, torna-se importante verificar sua funcionalidade segundo as regras 
+e a física estabelecidas para o jogo \cite{SabrawChurchill2022,SchaaBarriga2024}.
 
+Diferentes estratégias podem ser empregadas na construção automática dessas 
+fases. A geração aleatória seleciona características do cenário por mecanismos 
+de sorteio; a geração baseada em regras utiliza condições explícitas para 
+orientar as decisões de construção; e os algoritmos genéticos exploram 
+soluções candidatas ao longo de um processo de busca evolutiva. A literatura 
+sobre geração procedural baseada em busca destaca a importância da 
+representação do conteúdo e das funções de avaliação para orientar a produção 
+de soluções \cite{Togelius2011,TogeliusSearch2016}. Sabraw e Churchill (2022), 
+por exemplo, utilizam algoritmos genéticos para gerar fases de plataforma do 
+tipo \textit{auto-play}, demonstrando uma aplicação da evolução computacional 
+nesse domínio \cite{SabrawChurchill2022}.
 
-% ----------------------------------------------------------
-% 1.2 PROBLEMA DE PESQUISA
-% Uma pergunta clara, específica e investigável.
-% ----------------------------------------------------------
+Entretanto, a comparação entre estratégias de geração não deve se limitar à 
+quantidade de fases produzidas ou à obtenção de uma medida isolada de 
+qualidade. Schaa e Barriga (2024) analisam o espaço expressivo de diferentes 
+geradores de fases de \textit{Super Mario Bros.}, mostrando a utilidade de 
+métricas estruturais para caracterizar a variedade dos resultados. Withington, 
+Cook e Tokarchuk (2024) identificam diferentes práticas de avaliação de 
+geradores de níveis e discutem as dificuldades de estabelecer comparações 
+consistentes entre sistemas. De forma complementar, Khalifa et al. (2025) 
+propõem um ambiente de referência para avaliar algoritmos de PCG a partir 
+de critérios como qualidade, diversidade e controlabilidade 
+\cite{SchaaBarriga2024,Withington2024,Khalifa2025}.
+
+A análise computacional também não representa integralmente a experiência do 
+jogador. Summerville et al. (2017) investigam relações entre métricas de fases 
+de plataforma e avaliações humanas, evidenciando a pertinência de considerar 
+tanto características mensuráveis do cenário quanto percepções dos
+participantes \cite{Summerville2017}. Assim, a avaliação de estratégias de 
+geração pode combinar medidas de completabilidade, diversidade estrutural e 
+desempenho computacional com informações obtidas durante a interação dos 
+jogadores com as fases produzidas.
+
+Diante desse cenário, este projeto propõe implementar e comparar três 
+estratégias de geração procedural em um mesmo protótipo de jogo de plataforma 
+2D. A utilização de uma representação comum das fases, de um mesmo modelo 
+físico e de procedimentos padronizados de avaliação busca permitir a análise 
+das diferenças observadas entre as estratégias, sem pressupor previamente a 
+superioridade de qualquer uma delas.
 
 \section{Problema de Pesquisa}
 
-% %->  ESCREVA AQUI seu problema de pesquisa.
-%     Deve ser formulado como uma pergunta.
-%     Dica: copie do seu formulário de proposta de tema.
-%
-% Estrutura recomendada:
-% Diante do contexto apresentado, este trabalho busca responder
-% à seguinte questão: [SUA PERGUNTA DE PESQUISA]?
+Embora existam diferentes métodos para gerar fases automaticamente, suas 
+características e seus resultados dependem das decisões de representação, 
+construção e avaliação adotadas em cada sistema. Além disso, fases que atendem 
+a restrições estruturais podem não ser completáveis, e medidas computacionais 
+não descrevem, isoladamente, a experiência dos jogadores. A definição de 
+critérios comuns de comparação é, portanto, relevante para compreender os 
+resultados obtidos por diferentes estratégias no mesmo domínio 
+experimental \cite{Withington2024,Khalifa2025}.
 
-Diante do contexto apresentado, este trabalho busca responder à seguinte questão de pesquisa: \textbf{[Escreva aqui sua pergunta de pesquisa?]}
-
+Diante disso, esta pesquisa busca responder à seguinte questão:
+\textbf{Quais diferenças são observadas entre estratégias de geração 
+aleatória, geração baseada em regras e geração por algoritmos genéticos, 
+aplicadas à criação de fases de jogos de plataforma 2D, quanto à 
+completabilidade, à diversidade estrutural, ao desempenho computacional e 
+à experiência dos jogadores?}
 
 % ----------------------------------------------------------
 % 1.3 OBJETIVOS
@@ -58,67 +90,73 @@ Diante do contexto apresentado, este trabalho busca responder à seguinte quest�
 
 \subsection{Objetivo Geral}
 
-% %->  ESCREVA AQUI seu objetivo geral.
-%     Deve começar com verbo no infinitivo:
-%     Desenvolver / Analisar / Avaliar / Propor / Investigar
-%
-% Exemplo:
-% Desenvolver um sistema web para gerenciamento de filas em
-% postos de saúde do município de Tianguá-CE.
-
-[Escreva aqui o objetivo geral. Começa com verbo no infinitivo.]
-
+Analisar comparativamente estratégias de geração aleatória, geração baseada 
+em regras e geração por algoritmos genéticos na produção de fases para jogos 
+de plataforma 2D, considerando a completabilidade, a diversidade estrutural, 
+o desempenho computacional e a experiência dos jogadores.
 
 \subsection{Objetivos Específicos}
 
-% %->  LISTE AQUI seus objetivos específicos (3 a 5 itens).
-%     Cada um deve ser uma etapa concreta para atingir o geral.
-%     Também começam com verbo no infinitivo.
-%
-% Exemplo:
-% \begin{enumerate}
-%   \item Levantar os requisitos funcionais e não funcionais
-%         junto aos usuários do sistema;
-%   \item Modelar a arquitetura do sistema usando diagramas UML;
-%   \item Implementar o sistema utilizando tecnologias web modernas;
-%   \item Avaliar a usabilidade por meio de testes com usuários reais.
-% \end{enumerate}
-
 \begin{enumerate}
-    \item {[Primeiro objetivo específico — etapa 1 para atingir o geral]};
-    \item {[Segundo objetivo específico — etapa 2]};
-    \item {[Terceiro objetivo específico — etapa 3]};
-    \item {[Quarto objetivo específico — etapa 4, se necessário]}.  
+    \item Desenvolver um protótipo de jogo de plataforma 2D com representação 
+    computacional padronizada das fases e modelo compartilhado de movimentação 
+    e colisão;
+
+    \item Implementar as estratégias de geração aleatória, geração baseada em 
+    regras e geração por algoritmos genéticos, utilizando a mesma representação 
+    das fases;
+
+    \item Implementar e validar um procedimento automatizado de verificação de 
+    completabilidade, considerando as regras de movimentação do personagem e as 
+    limitações da busca;
+
+    \item Comparar as estratégias por meio de experimentos computacionais, 
+    utilizando métricas de completabilidade, diversidade estrutural e 
+    desempenho computacional;
+
+    \item Investigar, de forma exploratória, a experiência dos jogadores com 
+    fases produzidas pelas três estratégias, considerando registros das sessões 
+    e respostas a questionários.
 \end{enumerate}
-
-
-% ----------------------------------------------------------
-% 1.4 JUSTIFICATIVA
-% Por que este trabalho é importante?
-% ----------------------------------------------------------
 
 \section{Justificativa}
 
-% %->  ESCREVA AQUI a justificativa do seu trabalho.
-%     Responda 3 perguntas:
-%     (a) Qual problema concreto este trabalho resolve?
-%     (b) Quem se beneficia com este trabalho?
-%     (c) Por que agora? Por que em SI?
-%
-%     Use dados e referências para sustentar seus argumentos.
-%     Tamanho sugerido: 1 a 2 parágrafos.
+A relevância desta pesquisa está na necessidade de compreender não apenas como 
+fases podem ser geradas automaticamente, mas também como diferentes estratégias 
+se comportam quando avaliadas sob condições comparáveis. A literatura demonstra 
+que os geradores podem apresentar diferenças quanto às características dos 
+conteúdos produzidos e que a avaliação de sistemas de PCG envolve múltiplos 
+critérios, cuja escolha influencia a interpretação dos resultados 
+\cite{SchaaBarriga2024,Withington2024,Khalifa2025}. Nesse sentido, a comparação 
+proposta pretende produzir evidências sobre o comportamento de três estratégias 
+em um domínio específico, com procedimentos e limitações explicitados.
 
-[Escreva aqui a justificativa. Use referências para embasar a importância do seu tema.]
+Do ponto de vista técnico, a pesquisa possibilitará desenvolver um protótipo 
+experimental no qual os geradores compartilhem a mesma representação de fases, 
+a mesma física e os mesmos mecanismos de avaliação. Essa organização permite 
+examinar tanto as características das fases quanto o custo computacional 
+necessário para produzi-las. Além disso, a verificação automatizada de 
+completabilidade será tratada separadamente da validade estrutural, evitando 
+considerar uma fase jogável apenas porque seus elementos respeitam limites 
+geométricos. A investigação da experiência dos participantes complementará as 
+métricas computacionais, embora seus resultados sejam interpretados como 
+exploratórios e restritos às fases e aos participantes avaliados 
+\cite{Summerville2017,Withington2024}.
 
-
-% ----------------------------------------------------------
-% 1.5 ESTRUTURA DO TRABALHO
-% Explica como o documento está organizado.
-% ✅ Preencha após finalizar todas as seções.
-% ----------------------------------------------------------
+No âmbito de Sistemas de Informação, o estudo integra desenvolvimento de 
+software, implementação de algoritmos, simulação, registro de dados e análise 
+comparativa de resultados. Espera-se que seus procedimentos e resultados 
+contribuam para a compreensão das possibilidades e limitações das estratégias 
+investigadas, além de oferecerem uma base documentada para estudos posteriores 
+sobre geração e avaliação de fases de jogos de plataforma 2D.
 
 \section{Estrutura do Trabalho}
 
-% %->  Adapte o texto abaixo conforme suas seções reais.
-
-Este trabalho está organizado da seguinte forma: o Capítulo~\ref{cap:referencial} apresenta o referencial teórico, abordando os principais conceitos relacionados ao tema. O Capítulo~\ref{cap:metodologia} descreve a metodologia de pesquisa adotada. O Capítulo~\ref{cap:cronograma} apresenta o cronograma de execução do trabalho.
+Este trabalho está organizado da seguinte forma:
+O Capítulo~\ref{cap:referencial} reúne o referencial teórico, abordando 
+geração procedural de conteúdo, geração de fases para jogos de plataforma 2D, 
+algoritmos genéticos e trabalhos relacionados. O Capítulo~\ref{cap:metodologia} 
+descreve a classificação da pesquisa e os procedimentos previstos para 
+implementação dos geradores, avaliação computacional e avaliação com 
+participantes. Por fim, o Capítulo~\ref{cap:cronograma} apresenta o 
+planejamento das atividades para a execução do trabalho.
